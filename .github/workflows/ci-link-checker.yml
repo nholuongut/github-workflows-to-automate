@@ -1,0 +1,19 @@
+name: NhoLuong
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'README.md'
+      - '.github/workflows/ci-link-checker.yml'
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: nholuong
+        uses: nholuong/nholuong-action@v1.9.3
